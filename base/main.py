@@ -153,7 +153,7 @@ def make_concordance(stop_words: HashTable, text: List[str]) -> HashTable:
         line = line.lower().split()
         for token in line:
             if token.isalpha() and not has_key(stop_words, token):
-                add(table,token,i)
+                add(table,token,i + 1)
     return table
 
 # given an input file , a stop-words file, and an output file, overwrite the output file with
@@ -170,7 +170,7 @@ def full_concordance(in_file: str, stop_words_file: str, out_file: str) -> None:
 
     words = hash_keys(concordance)
     words.sort()
-    data = '\n'.join(f"{word} {' '.join(map(str,lookup(concordance, word)))}" for word in words)
+    data = '\n'.join(f"{word}: {' '.join(map(str,lookup(concordance, word)))}" for word in words)
 
 
     with open(out_file, "w") as out_file:
