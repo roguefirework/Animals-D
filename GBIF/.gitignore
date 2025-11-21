@@ -1,4 +1,4 @@
 # Ignore everything here for now, maybe properly add stuff later
 backbone.zip
 backbone/*
-
+database/*

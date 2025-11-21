@@ -52,7 +52,8 @@ def download_backbone() -> None:
 
     success("GBIF Backbone dataset updated successfully.")
 
-def main():
+# Checks if the data should be updated and if so, updates the data
+def main() -> None:
     if is_outdated():
         download_backbone()
     else:
